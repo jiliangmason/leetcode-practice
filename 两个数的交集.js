@@ -17,3 +17,23 @@
 我们可以不考虑输出结果的顺序。
  * 
  */
+function commonNumer(arr1, arr2) {
+  let map = {};
+  let ret = [];
+  for(let i=0; i<arr1.length; i++) {
+    map[arr1[i]] = true;
+  }
+  for(let j=0; j<arr2.length; j++) {
+    if (map[arr2[j]]) {
+      map[arr2[j]] = false;
+      ret.push(arr2[j]);
+    }
+  }
+
+  return ret;
+}
+
+/**
+ * 题目类型：hash表 + 映射
+ * 
+ */
