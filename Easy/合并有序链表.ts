@@ -53,3 +53,39 @@ l1 和 l2 均按 非递减顺序 排列
   * l = l.next 链表向后移动一位
   * curr.next = l  curr链表链接l链表
   */
+
+  /**
+   * 更简单的方法，递归
+   * 这道题可以使用递归实现，新链表也不需要构造新节点，我们下面列举递归三个要素
+      终止条件：两条链表分别名为 l1 和 l2，当 l1 为空或 l2 为空时结束
+      本级递归内容：如果 l1 的 val 值更小，则将 l1.next 与排序好的链表头相接，l2 同理
+   */
+  /**
+ *
+ */
+function ListNode(val) {
+  this.val = val;
+  this.next = null;
+}
+
+var mergeTwoLists = function (l1, l2) {
+  /**
+   * l1为空时，说明l1已经全部插入到l2中了
+   */
+  if (l1 === null) {
+    return l2;
+  }
+  if (l2 === null) {
+    return l1;
+  }
+  if (l1.val < l2.val) {
+    /**
+     * 哪一个更小，就拼接哪一个
+     */
+    l1 = mergeTwoLists(l1.next, l2);
+    return l1;
+  } else {
+    l2 = mergeTwoLists(l1, l2.next);
+    return l2;
+  }
+};

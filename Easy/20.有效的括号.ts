@@ -46,3 +46,32 @@ const isValide = (s: string) => {
   }
   return true;
 };
+
+/**
+ * 方法二，更好理解
+ * 遇到左边括号就入栈，后面就出栈
+ */
+let isValid = function(s) {
+  let stack = [], length = s.length;
+  if(length % 2) return false;
+  for(let item of s){
+      switch(item){
+          case "{":
+          case "[":
+          case "(":
+              stack.push(item);
+              break;
+          case "}":
+              if(stack.pop() !== "{") return false;
+              break;
+          case "]":
+              if(stack.pop() !== "[") return false;
+              break;
+          case ")":
+              if(stack.pop() !== "(") return false;
+              break;
+      }
+  }
+  return !stack.length;
+};
+
