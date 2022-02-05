@@ -31,7 +31,7 @@ function exist(board, word) {
     /**
      * 某个点已经越界了
      */
-    if (row < 0 || row > m || col < 0 || col > n) {
+    if (row < 0 || row >= m || col < 0 || col >= n) {
       return false;
     }
     /**
@@ -50,7 +50,7 @@ function exist(board, word) {
      * 注意这里的i+1，让迭代继续往下走
      */
     let flag =
-      canReach(row - 1, rol, i + 1) ||
+      canReach(row - 1, col, i + 1) ||
       canReach(row + 1, col, i + 1) ||
       canReach(row, col - 1, i + 1) ||
       canReach(row, col + 1, i + 1);
