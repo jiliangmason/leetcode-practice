@@ -64,7 +64,7 @@ var calcEquation = function (equations, values, queries) {
     }
     if (!map.has(end)) {
       map.set(end, []);
-      map.set(end, false);
+      visit.set(end, false);
     }
     let frontValue = map.get(front);
     let endValue = map.get(end);
