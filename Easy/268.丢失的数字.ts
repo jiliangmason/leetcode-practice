@@ -16,3 +16,11 @@ function getNums(nums: number[], n: number) {
   }
   return sum - result;
 }
+var findDisappearedNumbers = function (nums) {
+  const set = new Set(nums);
+  const final = []
+  for (let i = 1; i <= nums.length; i++) {
+    if (set.has(i) === false) final.push(i)
+  }
+  return final
+};
