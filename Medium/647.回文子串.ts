@@ -57,8 +57,8 @@ let countSubstrings1 = function(s) {
     // 如果存在一个长度为m的回文子字符串，则分别再向该回文的两端延伸一个字符，并判断回文前后的字符是否相同
     while (start >= 0 && end < s.length && s.charAt(start) == s.charAt(end)) {
       count++;
-      start--;
-      end++;
+      start++;
+      end--;
     }
     return count;
   };
