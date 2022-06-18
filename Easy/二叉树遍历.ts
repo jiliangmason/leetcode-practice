@@ -107,3 +107,24 @@ const postorderTraversal = (root, res) => {
     return res.reverse();
   }
 }
+
+/**
+ * 层序遍历
+ * level 0 [[1,2,3], [4,5,6]]
+*/
+function levelLoop(root, level) {
+  if (!root) return;
+  res[level].push(root.val);
+  if (root.left) {
+    levelLoop(root.left, level + 1);
+  }
+  if (root.right) {
+    levelLoop(root.right, level + 1);
+  }
+}
+
+function loop() {
+  let res = [];
+  levelLoop(root, 0);
+  return res;
+}
